@@ -1,17 +1,25 @@
 import { ChakraProvider } from '@chakra-ui/react';
-import { Button } from '@chakra-ui/react';
+
+import ThemeToggle from './components/ThemeToggle.js';
+import Calculator from './components/Calculator.js';
+import Memory from './components/Memory.js';
 
 import './App.css';
 
 function App() {
+
+
+
   return (
     <>
       <ChakraProvider>
-        <h1>Hello World</h1>
-        <Button>Testing Chakra UI</Button>
+        <ThemeToggle />
+        <Calculator />
+        <Memory />
       </ChakraProvider>
-    </>
+    </>  
   );
+
 }
 
 export default App;
