@@ -1,42 +1,47 @@
-import { Box, Button } from '@chakra-ui/react';
+import { Button, HStack, VStack } from '@chakra-ui/react';
+
+import Key from './Key.js';
 
 const Keys = () => {
 
     return (
         
-        <Box>
+        <VStack>
 
-            <Button>7</Button>
-            <Button>8</Button> 
-            <Button>9</Button>
-            <Button>+</Button>
+            <HStack>
+                <Key value = { 7 } />
+                <Key value = { 8 } />
+                <Key value = { 9 } />
+                <Key value = "+" color = "blue" />
+            </HStack>
 
-            <br />
+            <HStack>
+                <Key value = { 4 } />
+                <Key value = { 5 } />
+                <Key value = { 6 } />
+                <Key value = "-" color = "blue" />
+            </HStack>
 
-            <Button>4</Button>
-            <Button>5</Button> 
-            <Button>6</Button>
-            <Button>-</Button>
+            <HStack>
+                <Key value = { 1 } />
+                <Key value = { 2 } />
+                <Key value = { 3 } />
+                <Key value = "*" color = "blue" />
+            </HStack>
 
-            <br />
+            <HStack>
+                <Key value = { 0 } />
+                <Key value = "." />
+                <Key value = "^" color = "blue" />
+                <Key value = "/" color = "blue" />
+            </HStack>
 
-            <Button>1</Button>
-            <Button>2</Button> 
-            <Button>3</Button>
-            <Button>*</Button>
-
-            <br />
-
-            <Button>C</Button>
-            <Button>0</Button>
-            <Button>.</Button> 
-            <Button>/</Button>
-
-            <br />
-
-            <Button>Calculate</Button>
+            <HStack>
+                <Key value = "CLEAR" color = "red" />
+                <Key value = "CALCULATE" color = "green" />
+            </HStack>
             
-        </Box>
+        </VStack>
     );
 
 };

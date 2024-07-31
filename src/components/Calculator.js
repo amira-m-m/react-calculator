@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/react';
+import { VStack } from '@chakra-ui/react';
 
 import Display from './Display.js';
 import Keys from './Keys.js';
@@ -8,13 +8,11 @@ const Calculator = () => {
 
     return (
 
-        <Box>
-
+        <VStack>
             <Header text = "Calculator" />
             <Display />
             <Keys />
-
-        </Box>
+        </VStack>
 
     );
 

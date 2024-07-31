@@ -1,8 +1,8 @@
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider, Divider, VStack } from '@chakra-ui/react';
 
 import ThemeToggle from './components/ThemeToggle.js';
 import Calculator from './components/Calculator.js';
-import Memory from './components/Memory.js';
+import MemoryList from './components/MemoryList.js';
 
 import './App.css';
 
@@ -13,9 +13,13 @@ function App() {
   return (
     <>
       <ChakraProvider>
-        <ThemeToggle />
-        <Calculator />
-        <Memory />
+        <VStack>
+          <ThemeToggle />
+          <Divider />
+          <Calculator />
+          <Divider />
+          <MemoryList />
+        </VStack>
       </ChakraProvider>
     </>  
   );

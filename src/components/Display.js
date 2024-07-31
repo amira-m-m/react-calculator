@@ -4,7 +4,7 @@ const Display = () => {
 
     return (
 
-        <Input></Input>
+        <Input />
 
     );
 

@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/react';
+import { VStack } from '@chakra-ui/react';
 
 import Header from './Header.js';
 
@@ -6,11 +6,11 @@ const Memory = () => {
 
     return (
 
-        <Box id="hist">
+        <VStack>
 
             <Header text="Memory" />
 
-        </Box>
+        </VStack>
 
     );
 
