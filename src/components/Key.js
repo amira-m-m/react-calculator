@@ -15,7 +15,7 @@ const Key = (props) => {
         return key ? key.onClick: () => {};
     };
 
-    const { appendNum, appendDec } = React.useContext(EnteredNumContext);
+    const { appendNum, appendDec, clearNum } = React.useContext(EnteredNumContext);
 
     const handleClickNum = () => {
         appendNum(props.caption.toString());
@@ -30,7 +30,7 @@ const Key = (props) => {
     };
 
     const handleClickClr = () => {
-        alert('Clear');
+        clearNum();
     };
 
     const handleClickCalc = () => {

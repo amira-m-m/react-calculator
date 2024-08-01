@@ -24,11 +24,15 @@ export const EnteredNumProvider = ({ children }) => {
             };
             return prevNum + '.';
         });
+    };
+
+    const clearNum = () => {
+        setEnteredNum('0');
     }
 
     return (
 
-        <EnteredNumContext.Provider value = {{ enteredNum, appendNum, appendDec }}>
+        <EnteredNumContext.Provider value = {{ enteredNum, appendNum, appendDec, clearNum }}>
             { children }
         </EnteredNumContext.Provider>
 
