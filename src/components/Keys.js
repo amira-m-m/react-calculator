@@ -9,36 +9,91 @@ const Keys = () => {
         <VStack>
 
             <HStack>
-                <Key value = { 7 } />
-                <Key value = { 8 } />
-                <Key value = { 9 } />
-                <Key value = "+" color = "blue" />
+                <Key
+                    type = "num"
+                    caption = { 7 }
+                />
+                <Key
+                    type = "num"
+                    caption = { 8 }
+                />
+                <Key
+                    type = "num"
+                    caption = { 9 }
+                />
+                <Key
+                    type = "op"
+                    caption = "+"
+                />
             </HStack>
 
             <HStack>
-                <Key value = { 4 } />
-                <Key value = { 5 } />
-                <Key value = { 6 } />
-                <Key value = "-" color = "blue" />
+                <Key
+                    type = "num"
+                    caption = { 4 }
+                />
+                <Key
+                    type = "num"
+                    caption = { 5 }
+                />
+                <Key
+                    type = "num"
+                    caption = { 6 }
+                />
+                <Key
+                    type = "op"
+                    caption = "-"
+                />
             </HStack>
 
             <HStack>
-                <Key value = { 1 } />
-                <Key value = { 2 } />
-                <Key value = { 3 } />
-                <Key value = "*" color = "blue" />
+                <Key
+                    type = "num"
+                    caption = { 1 }
+                />
+                <Key
+                    type = "num"
+                    caption = { 2 }
+                />
+                <Key
+                    type = "num"
+                    caption = { 3 }
+                />
+                <Key
+                    type = "op"
+                    caption = "*"
+                />
             </HStack>
 
             <HStack>
-                <Key value = { 0 } />
-                <Key value = "." />
-                <Key value = "^" color = "blue" />
-                <Key value = "/" color = "blue" />
+                <Key
+                    type = "num"
+                    caption = { 0 }
+                />
+                <Key
+                    type = "dec"
+                    caption = "."
+                />
+                <Key
+                    type = "op"
+                    caption = "^"
+                />
+                <Key
+                    type = "op"
+                    caption = "*"
+                />
             </HStack>
 
+
             <HStack>
-                <Key value = "CLEAR" color = "red" />
-                <Key value = "CALCULATE" color = "green" />
+                <Key
+                    type = "clr"
+                    caption = "CLEAR"
+                />
+                <Key
+                    type = "calc"
+                    caption = "CALCULATE"
+                />
             </HStack>
             
         </VStack>
