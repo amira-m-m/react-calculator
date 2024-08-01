@@ -1,20 +1,17 @@
 import React from 'react';
 import { Input } from '@chakra-ui/react';
 
-import { ChosenNumContext } from '../providers/ChosenNumContext';
+import { EnteredNumContext } from '../providers/EnteredNumContext';
 
 const Display = () => {
 
-    const { chosenNum, setChosenNum } = React.useContext(ChosenNumContext);
+    const { enteredNum } = React.useContext(EnteredNumContext);
 
     return (
 
         <Input
-            value = { chosenNum }
-            onChange = { (event) => {
-                setChosenNum(event.target.value)
-                }
-            }
+            value = { enteredNum }
+            readOnly
         />
 
     );

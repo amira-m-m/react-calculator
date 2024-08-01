@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "@chakra-ui/react";
 
-import { ChosenNumContext } from "../providers/ChosenNumContext";
+import { EnteredNumContext } from "../providers/EnteredNumContext";
 
 const Key = (props) => {
 
@@ -15,14 +15,14 @@ const Key = (props) => {
         return key ? key.onClick: () => {};
     };
 
-    const { chosenNum, setChosenNum } = React.useContext(ChosenNumContext);
+    const { appendNum, appendDec } = React.useContext(EnteredNumContext);
 
     const handleClickNum = () => {
-        setChosenNum(props.caption);
+        appendNum(props.caption.toString());
     };
 
     const handleClickDec = () => {
-        setChosenNum(props.caption);
+        appendDec();
     };
 
     const handleClickOp = () => {
