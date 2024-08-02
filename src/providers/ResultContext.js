@@ -9,7 +9,7 @@ export const ResultProvider = ({ children }) => {
     const [result, setResult] = useState(0);
 
     const { numArr, opArr } = useContext(ArrContext);
-    const { clearNum } = useContext(DisplayedNumContext);
+    const { setDisplayedNum, setResetNum } = useContext(DisplayedNumContext);
 
     useEffect(() => {
 
@@ -43,10 +43,11 @@ export const ResultProvider = ({ children }) => {
             }
         }
 
+        setDisplayedNum(tempResult);
         setResult(tempResult);
-        clearNum();
+        setResetNum(true);
                 
-    }, [numArr, opArr]);
+    }, [numArr, opArr, setDisplayedNum, setResetNum]);
 
     return (
         <ResultContext.Provider value={{ result }}>

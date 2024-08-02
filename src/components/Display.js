@@ -7,7 +7,6 @@ import { ResultContext } from '../providers/ResultContext.js';
 const Display = () => {
 
     const { displayedNum } = React.useContext(DisplayedNumContext);
-    const { result } = React.useContext(ResultContext);
 
     return (
 
@@ -16,7 +15,6 @@ const Display = () => {
             value = { displayedNum }
             readOnly
         />
-        <Text>{ result }</Text>
         </HStack>
 
     );

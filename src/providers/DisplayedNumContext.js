@@ -5,9 +5,14 @@ export const DisplayedNumContext = createContext();
 export const DisplayedNumProvider = ({ children }) => {
 
     const [displayedNum, setDisplayedNum] = useState('0');
+    const [resetNum, setResetNum] = useState(false);
 
     const appendNum = (newNum) => {
         setDisplayedNum((prevNum) => {
+            if (resetNum) {
+                setResetNum(false);
+                return newNum;
+            };
             if (prevNum === '0') {
                 return newNum;
             };
@@ -31,7 +36,7 @@ export const DisplayedNumProvider = ({ children }) => {
     };
 
     return (
-        <DisplayedNumContext.Provider value={{ displayedNum, setDisplayedNum, appendNum, appendDec, clearNum }}>
+        <DisplayedNumContext.Provider value={{ displayedNum, setDisplayedNum, setResetNum, appendNum, appendDec, clearNum }}>
             {children}
         </DisplayedNumContext.Provider>
     );

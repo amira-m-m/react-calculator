@@ -28,6 +28,7 @@ const Key = (props) => {
 
     const handleClickCalc = () => {
         addNumToArr();
+        setTimeout(() => clearArrs(), 0);
     };
 
     const keyAttributes = [
