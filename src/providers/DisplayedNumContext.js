@@ -21,6 +21,10 @@ export const DisplayedNumProvider = ({ children }) => {
     };
 
     const appendDec = () => {
+        if (resetNum === true) {
+            setDisplayedNum(0);
+            setResetNum(false);
+        };
         setDisplayedNum((prevNum) => {
             const pattern = /\./;
             const hasADecimal = pattern.test(prevNum);
