@@ -16,7 +16,7 @@ function App() {
         <VStack>
           <ThemeToggle />
           <Divider />
-            <Calculator />
+          <Calculator />
           <Divider />
           <MemoryList />
         </VStack>

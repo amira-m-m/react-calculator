@@ -1,18 +1,23 @@
 import React from 'react';
-import { Input } from '@chakra-ui/react';
+import { HStack, Input, Text } from '@chakra-ui/react';
 
-import { EnteredNumContext } from '../providers/EnteredNumContext';
+import { DisplayedNumContext } from '../providers/DisplayedNumContext.js';
+import { ResultContext } from '../providers/ResultContext.js';
 
 const Display = () => {
 
-    const { enteredNum } = React.useContext(EnteredNumContext);
+    const { displayedNum } = React.useContext(DisplayedNumContext);
+    const { result } = React.useContext(ResultContext);
 
     return (
 
+        <HStack>
         <Input
-            value = { enteredNum }
+            value = { displayedNum }
             readOnly
         />
+        <Text>{ result }</Text>
+        </HStack>
 
     );
 

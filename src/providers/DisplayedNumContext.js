@@ -1,13 +1,13 @@
 import React, { createContext, useState } from 'react';
 
-export const EnteredNumContext = createContext();
+export const DisplayedNumContext = createContext();
 
-export const EnteredNumProvider = ({ children }) => {
+export const DisplayedNumProvider = ({ children }) => {
 
-    const [enteredNum, setEnteredNum] = useState('0');
+    const [displayedNum, setDisplayedNum] = useState('0');
 
     const appendNum = (newNum) => {
-        setEnteredNum((prevNum) => {
+        setDisplayedNum((prevNum) => {
             if (prevNum === '0') {
                 return newNum;
             };
@@ -16,7 +16,7 @@ export const EnteredNumProvider = ({ children }) => {
     };
 
     const appendDec = () => {
-        setEnteredNum((prevNum) => {
+        setDisplayedNum((prevNum) => {
             const pattern = /\./;
             const hasADecimal = pattern.test(prevNum);
             if (hasADecimal) {
@@ -27,15 +27,13 @@ export const EnteredNumProvider = ({ children }) => {
     };
 
     const clearNum = () => {
-        setEnteredNum('0');
-    }
+        setDisplayedNum('0');
+    };
 
     return (
-
-        <EnteredNumContext.Provider value = {{ enteredNum, appendNum, appendDec, clearNum }}>
-            { children }
-        </EnteredNumContext.Provider>
-
+        <DisplayedNumContext.Provider value={{ displayedNum, setDisplayedNum, appendNum, appendDec, clearNum }}>
+            {children}
+        </DisplayedNumContext.Provider>
     );
 
 };

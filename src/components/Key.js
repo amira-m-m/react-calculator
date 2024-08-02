@@ -1,21 +1,13 @@
 import React from "react";
 import { Button } from "@chakra-ui/react";
 
-import { EnteredNumContext } from "../providers/EnteredNumContext";
+import { DisplayedNumContext } from "../providers/DisplayedNumContext.js";
+import { ArrContext } from "../providers/ArrContext.js";
 
 const Key = (props) => {
 
-    const setKeyColorScheme = (type) => {
-        const key = keyAttributes.find(key => key.type === type );
-        return key ? key.colorScheme : 'gray';
-    };
-
-    const setKeyOnClick = (type) => {
-        const key = keyAttributes.find(key => key.type === type );
-        return key ? key.onClick: () => {};
-    };
-
-    const { appendNum, appendDec, clearNum } = React.useContext(EnteredNumContext);
+    const { appendNum, appendDec, clearNum } = React.useContext(DisplayedNumContext);
+    const { addNumToArr, addOpToArr, clearArrs } = React.useContext(ArrContext);
 
     const handleClickNum = () => {
         appendNum(props.caption.toString());
@@ -26,7 +18,8 @@ const Key = (props) => {
     };
 
     const handleClickOp = () => {
-        alert('Operation');
+        addNumToArr();
+        addOpToArr(props.caption.toString());
     };
 
     const handleClickClr = () => {
@@ -34,7 +27,7 @@ const Key = (props) => {
     };
 
     const handleClickCalc = () => {
-        alert('Calculate');
+        addNumToArr();
     };
 
     const keyAttributes = [
@@ -44,6 +37,16 @@ const Key = (props) => {
         { type: 'clr', colorScheme: 'red', onClick: handleClickClr },
         { type: 'calc', colorScheme: 'green', onClick: handleClickCalc }
     ];
+
+    const setKeyColorScheme = (type) => {
+        const key = keyAttributes.find(key => key.type === type );
+        return key ? key.colorScheme : 'gray';
+    };
+
+    const setKeyOnClick = (type) => {
+        const key = keyAttributes.find(key => key.type === type );
+        return key ? key.onClick: () => {};
+    };
 
     return (
 

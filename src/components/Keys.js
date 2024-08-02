@@ -80,7 +80,7 @@ const Keys = () => {
                 />
                 <Key
                     type = "op"
-                    caption = "*"
+                    caption = "/"
                 />
             </HStack>
 
