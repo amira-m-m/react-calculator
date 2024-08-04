@@ -6,6 +6,7 @@ import Display from './Display.js';
 import Keys from './Keys.js';
 import Header from './Header.js';
 import { ResultProvider } from '../providers/ResultContext.js';
+import { ClearProvider } from '../providers/ClearContext.js';
 
 const Calculator = () => {
 
@@ -13,14 +14,16 @@ const Calculator = () => {
 
         <VStack>
             <Header text = "Calculator" />
-            <DisplayedNumProvider>
-                <ArrProvider>
-                    <ResultProvider>
-                        <Display />
-                        <Keys />
-                    </ResultProvider>
-                </ArrProvider>
-            </DisplayedNumProvider>
+            <ClearProvider>
+                <DisplayedNumProvider>
+                    <ArrProvider>
+                        <ResultProvider>
+                            <Display />
+                            <Keys />
+                        </ResultProvider>
+                    </ArrProvider>
+                </DisplayedNumProvider>
+            </ClearProvider>
         </VStack>
 
     );

@@ -3,11 +3,13 @@ import { Button } from "@chakra-ui/react";
 
 import { DisplayedNumContext } from "../providers/DisplayedNumContext.js";
 import { ArrContext } from "../providers/ArrContext.js";
+import { ClearContext } from "../providers/ClearContext.js";
 
 const Key = (props) => {
 
     const { appendNum, appendDec, clearNum } = React.useContext(DisplayedNumContext);
     const { addNumToArr, addOpToArr, clearArrs } = React.useContext(ArrContext);
+    const { clearClickedOnce } = React.useContext(ClearContext);
 
     const handleClickNum = () => {
         appendNum(props.caption.toString());
@@ -24,6 +26,9 @@ const Key = (props) => {
 
     const handleClickClr = () => {
         clearNum();
+        if (clearClickedOnce) {
+            clearArrs();
+        };
     };
 
     const handleClickCalc = () => {

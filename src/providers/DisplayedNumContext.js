@@ -1,14 +1,20 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useContext, useState } from 'react';
+
+import { ClearContext } from './ClearContext.js';
 
 export const DisplayedNumContext = createContext();
 
 export const DisplayedNumProvider = ({ children }) => {
 
+    const { resetNum, setResetNum, clearClickedOnce, setClearClickedOnce } = React.useContext(ClearContext);
+
     const [displayedNum, setDisplayedNum] = useState('0');
-    const [resetNum, setResetNum] = useState(false);
 
     const appendNum = (newNum) => {
         setDisplayedNum((prevNum) => {
+            if (clearClickedOnce) {
+                setClearClickedOnce(false);
+            };
             if (resetNum) {
                 setResetNum(false);
                 return newNum;
@@ -21,6 +27,9 @@ export const DisplayedNumProvider = ({ children }) => {
     };
 
     const appendDec = () => {
+        if (clearClickedOnce) {
+            setClearClickedOnce(false);
+        };
         if (resetNum === true) {
             setDisplayedNum(0);
             setResetNum(false);
@@ -37,10 +46,11 @@ export const DisplayedNumProvider = ({ children }) => {
 
     const clearNum = () => {
         setDisplayedNum('0');
+        setClearClickedOnce(!clearClickedOnce);
     };
 
     return (
-        <DisplayedNumContext.Provider value={{ displayedNum, setDisplayedNum, setResetNum, appendNum, appendDec, clearNum }}>
+        <DisplayedNumContext.Provider value={{ displayedNum, setDisplayedNum, appendNum, appendDec, clearNum }}>
             {children}
         </DisplayedNumContext.Provider>
     );

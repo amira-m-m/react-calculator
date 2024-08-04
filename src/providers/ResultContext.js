@@ -1,6 +1,7 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 import { ArrContext } from './ArrContext.js';
 import { DisplayedNumContext } from './DisplayedNumContext.js';
+import { ClearContext } from './ClearContext.js';
 
 export const ResultContext = createContext();
 
@@ -9,7 +10,8 @@ export const ResultProvider = ({ children }) => {
     const [result, setResult] = useState(0);
 
     const { numArr, opArr } = useContext(ArrContext);
-    const { setDisplayedNum, setResetNum } = useContext(DisplayedNumContext);
+    const { setDisplayedNum } = useContext(DisplayedNumContext);
+    const { setResetNum } = useContext(ClearContext);
 
     useEffect(() => {
 
