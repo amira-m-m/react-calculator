@@ -23,12 +23,6 @@ const Calculator = () => {
         >
             <Display />
             <Keys />
-            <Text>DEBUG - Last clicked:</Text>
-            <Input value={lastClicked} />
-            <Text>DEBUG - Equation:</Text>
-            <Input value={equation} />
-            <Text>DEBUG - Result so far:</Text>
-            <Input value={result} />
         </Flex>
 
     );
