@@ -1,5 +1,7 @@
-import { Input } from "@chakra-ui/react"
 import { useContext } from "react";
+
+import { Input } from "@chakra-ui/react"
+
 import { CalculatorContext } from "../../providers/CalculatorContext";
 
 const Display = () => {

@@ -1,5 +1,5 @@
-import BigNumber from 'bignumber.js';
 import React, { createContext, useState } from 'react';
+import BigNumber from 'bignumber.js';
 
 export const CalculatorContext = createContext();
 
@@ -169,9 +169,6 @@ export const CalculatorProvider = ({ children }) => {
         <CalculatorContext.Provider value={{
             calculate,
             displayedNum,
-            lastClicked,
-            equation,
-            result,
         }}>
         {children}
         </CalculatorContext.Provider>

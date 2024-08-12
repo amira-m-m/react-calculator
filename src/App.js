@@ -1,8 +1,8 @@
 import { ChakraProvider, Flex } from "@chakra-ui/react";
 
-import "./App.css";
-
 import { CalculatorProvider } from "./providers/CalculatorContext";
+
+import "./App.css";
 
 import Calculator from "./components/Calculator/Calculator";
 import MemoryList from "./components/MemoryList/MemoryList";
@@ -14,7 +14,6 @@ function App () {
     return (
 
         <ChakraProvider>
-            <>
                 <Flex
                     direction="row"
                     w="100vw"
@@ -41,7 +40,6 @@ function App () {
                         <MemoryList />
                     </Flex>
                 </Flex>
-            </>
         </ChakraProvider>
 
     );

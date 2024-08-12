@@ -1,5 +1,6 @@
-import { Flex, Icon, Link, Text } from "@chakra-ui/react";
 import { AiFillGithub } from "react-icons/ai";
+
+import { Flex, Icon, Link, Text } from "@chakra-ui/react";
 
 const Credits = () => {
 

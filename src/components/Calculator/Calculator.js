@@ -1,15 +1,9 @@
-import { useContext } from "react";
-
 import { Flex } from "@chakra-ui/react";
-
-import { CalculatorContext } from "../../providers/CalculatorContext";
 
 import Display from "./Display";
 import Keys from "./Keys";
 
 const Calculator = () => {
-
-    const {lastClicked, equation, result} = useContext(CalculatorContext);
 
     return (
 

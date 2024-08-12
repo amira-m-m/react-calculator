@@ -1,5 +1,7 @@
-import { Button } from "@chakra-ui/react";
 import { useContext } from "react";
+
+import { Button } from "@chakra-ui/react";
+
 import { CalculatorContext } from "../../providers/CalculatorContext";
 
 const Key = (props) => {
