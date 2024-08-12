@@ -10,6 +10,7 @@ const Display = () => {
 
         <Input 
             value={displayedNum}
+            bgColor='gray.200'
             readOnly
         />
 

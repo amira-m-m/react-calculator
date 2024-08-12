@@ -1,6 +1,6 @@
 import { useContext } from "react";
 
-import { Button, Flex, Input, Text } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 
 import { CalculatorContext } from "../../providers/CalculatorContext";
 

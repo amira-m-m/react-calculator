@@ -1,5 +1,5 @@
-import { LogoGithub } from "@chakra-icons/ionicons";
-import { Flex, Link, Text } from "@chakra-ui/react";
+import { Flex, Icon, Link, Text } from "@chakra-ui/react";
+import { AiFillGithub } from "react-icons/ai";
 
 const Credits = () => {
 
@@ -16,10 +16,16 @@ const Credits = () => {
                 target="_self"
                 isExternal
             >
-                <LogoGithub boxSize={10} />
+                <Icon 
+                    as={AiFillGithub}
+                    boxSize={10}
+                    color="gray.700"
+                    transition="all 0.2s ease-in-out"
+                    _hover={{color: "white"}}
+                />
             </Link>
 
-            <Text>&copy; 2024 Amira Mohamed</Text>
+            <Text color="gray.600">&copy; 2024 Amira Mohamed</Text>
 
         </Flex>
 
