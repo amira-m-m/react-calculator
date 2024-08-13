@@ -5,7 +5,6 @@ export const CalculatorContext = createContext();
 
 export const CalculatorProvider = ({ children }) => {
 
-    const [lastClicked, setLastClicked] = useState('');
     const [displayedNum, setDisplayedNum] = useState('0');
     const [numArr, setNumArr] = useState([]);
     const [opArr, setOpArr] = useState([])
@@ -16,58 +15,60 @@ export const CalculatorProvider = ({ children }) => {
 
     const calculate = (buttonType, buttonValue) => {
 
-        setLastClicked(buttonValue);
+        try {
+            
+            switch (buttonType) {
 
-        switch (buttonType) {
+                case 'digit':
+                    equationResetFlag && resetEquation();
+                    if (displayResetFlag) {
+                        resetDisplay();
+                        replace(buttonValue);
+                    }
+                    else {
+                        displayedNum === '0' ? replace(buttonValue) : append(buttonValue);
+                    };
+                    break;
 
-            case 'digit':
-                equationResetFlag && resetEquation();
-                if (displayResetFlag) {
+                case 'decimal':
+                    equationResetFlag && resetEquation();
+                    const searchPattern = /\./;
+                    if (displayResetFlag) {
+                        resetDisplay();
+                        replace(`0.`);
+                    }
+                    else {
+                        !searchPattern.test(displayedNum) && append(buttonValue);
+                    };
+                    break;
+
+                case 'operator':
+                    displayResetFlag && resetDisplay();
+                    equationResetFlag && resetEquation();
+                    updateEquation(displayedNum, buttonValue);
+                    calculateResultSoFar();
+                    break;
+
+                case 'calculate':
+                    displayResetFlag && resetDisplay();
+                    equationResetFlag && resetEquation();
+                    updateEquation(displayedNum);
+                    calculateResultSoFar();
+                    resetEquation();
+                    flagDisplayForReset();
+                    break;
+
+                case 'clear':
+                    displayedNum === '0' && resetEquation();
                     resetDisplay();
-                    replace(buttonValue);
-                }
-                else {
-                    displayedNum === '0' ? replace(buttonValue) : append(buttonValue);
-                };
-                break;
-
-            case 'decimal':
-                equationResetFlag && resetEquation();
-                const searchPattern = /\./;
-                if (displayResetFlag) {
-                    resetDisplay();
-                    replace(`0.`);
-                }
-                else {
-                    !searchPattern.test(displayedNum) && append(buttonValue);
-                };
-                break;
-
-            case 'operator':
-                displayResetFlag && resetDisplay();
-                equationResetFlag && resetEquation();
-                updateEquation(displayedNum, buttonValue);
-                calculateResultSoFar();
-                break;
-
-            case 'calculate':
-                displayResetFlag && resetDisplay();
-                equationResetFlag && resetEquation();
-                updateEquation(displayedNum);
-                calculateResultSoFar();
-                resetEquation();
-                flagDisplayForReset();
-                break;
-
-            case 'clear':
-                displayedNum === '0' && resetEquation();
-                resetDisplay();
-                break;
-
-            default:
-                showError();
-                flagEquationForReset();
-                flagDisplayForReset();
+                    break;
+            };
+        
+        }
+        catch(error) {
+            showError();
+            flagEquationForReset();
+            flagDisplayForReset();
         };
 
     };
@@ -107,34 +108,37 @@ export const CalculatorProvider = ({ children }) => {
                 return result;
             };
             setResult (() => {
-                for (let i = 0; i < numArr.length; i++) {
-                    const currentOperand = BigNumber(numArr[i]);
-                    const currentOperator = (opArr[i-1]);
-                    let newResult = result;
-                    switch (currentOperator) {
-                        case undefined:
-                            newResult = currentOperand;
-                            break;
-                        case '+':
-                            newResult = newResult.plus(currentOperand);
-                            break;
-                        case '-':
-                            newResult = newResult.minus(currentOperand);
-                            break;
-                        case '*':
-                            newResult = newResult.times(currentOperand);
-                            break;
-                        case '/':
-                            newResult = newResult.div(currentOperand);
-                            break;
-                        case '^':
-                            newResult = newResult.pow(currentOperand);
-                            break;
-                        default:
-                            showError();
+                try {
+                    for (let i = 0; i < numArr.length; i++) {
+                        const currentOperand = BigNumber(numArr[i]);
+                        const currentOperator = (opArr[i-1]);
+                        let newResult = result;
+                        switch (currentOperator) {
+                            case undefined:
+                                newResult = currentOperand;
+                                break;
+                            case '+':
+                                newResult = newResult.plus(currentOperand);
+                                break;
+                            case '-':
+                                newResult = newResult.minus(currentOperand);
+                                break;
+                            case '*':
+                                newResult = newResult.times(currentOperand);
+                                break;
+                            case '/':
+                                newResult = newResult.div(currentOperand);
+                                break;
+                            case '^':
+                                newResult = newResult.pow(currentOperand);
+                                break;
+                        };
+                        setDisplayedNum(newResult);
+                        setResult(newResult);
                     };
-                    setDisplayedNum(newResult);
-                    setResult(newResult);
+                }
+                catch(error) {
+                    showError();
                 };
             });
         });
