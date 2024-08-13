@@ -13,12 +13,11 @@ export const CalculatorProvider = ({ children }) => {
     const [displayResetFlag, setDisplayResetFlag] = useState(false);
     const [equationResetFlag, setEquationResetFlag] = useState(false);
 
+    // Handle
     const calculate = (buttonType, buttonValue) => {
 
         try {
-            
             switch (buttonType) {
-
                 case 'digit':
                     equationResetFlag && resetEquation();
                     if (displayResetFlag) {
@@ -90,10 +89,14 @@ export const CalculatorProvider = ({ children }) => {
         equationResetFlag && setEquationResetFlag(false)
         numArr.push(num);
         setEquation((prev) => `${prev}${num} `)
+
+        // Update equation on calculate button click
         if (op !== undefined) {
             opArr.push(op);
             setEquation((prev) => `${prev}${op} `)
         }
+
+        // Update equation on operation button click
         else {
             calculateResultSoFar();
             setEquation((prev) => `${prev}= `);
@@ -104,15 +107,21 @@ export const CalculatorProvider = ({ children }) => {
 
     const calculateResultSoFar = () => {
         setResult(() => {
+
+            // Calculate result for an equation with a single number and no operations
             if (numArr.length === 0 || opArr.length === 0) {
                 return result;
             };
+
+            // Calculate result for an equation with multiple numbers and at least one operation
             setResult (() => {
                 try {
                     for (let i = 0; i < numArr.length; i++) {
+
                         const currentOperand = BigNumber(numArr[i]);
                         const currentOperator = (opArr[i-1]);
                         let newResult = result;
+
                         switch (currentOperator) {
                             case undefined:
                                 newResult = currentOperand;
@@ -133,6 +142,7 @@ export const CalculatorProvider = ({ children }) => {
                                 newResult = newResult.pow(currentOperand);
                                 break;
                         };
+                        
                         setDisplayedNum(newResult);
                         setResult(newResult);
                     };
