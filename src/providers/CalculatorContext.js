@@ -13,7 +13,7 @@ export const CalculatorProvider = ({ children }) => {
     const [displayResetFlag, setDisplayResetFlag] = useState(false);
     const [equationResetFlag, setEquationResetFlag] = useState(false);
 
-    // Handle
+    // Handle calculator key clicks based on button type (class name)
     const calculate = (buttonType, buttonValue) => {
 
         try {
@@ -142,7 +142,7 @@ export const CalculatorProvider = ({ children }) => {
                                 newResult = newResult.pow(currentOperand);
                                 break;
                         };
-                        
+
                         setDisplayedNum(newResult);
                         setResult(newResult);
                     };
