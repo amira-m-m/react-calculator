@@ -4,6 +4,10 @@
 
 This project serves as a practical application of the skills acquired through beginner and advanced React courses provided by Meta. It is a sequential calculator application built with React.js, Chakra UI, and the [bignumber.js](https://mikemcl.github.io/bignumber.js/) API. State management techniques are to keep the user interface synchronized with real-time data updates.
 
+## Live Demo
+
+A live demo of this app is hosted at [https://amira-m-m.github.io/react-calculator](https://amira-m-m.github.io/react-calculator)
+
 ## Features
 
 ### Current
