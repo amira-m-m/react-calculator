@@ -125,6 +125,16 @@ describe('App Components', () => {
     expect(displayField).toHaveValue('-2');
   });
 
+  test('Multiple decimal points not allowed in a single number', () => {
+    fireEvent.click(buttonNine);
+    fireEvent.click(buttonDecimal);
+    fireEvent.click(buttonDecimal);
+    fireEvent.click(buttonEight);
+    fireEvent.click(buttonDecimal);
+    fireEvent.click(buttonSeven);
+    expect(displayField).toHaveValue('9.87');
+  });
+
   test('Clicking a digit after final calculation resets the display and the result', () => {
     fireEvent.click(buttonNine);
     fireEvent.click(buttonPlus);
