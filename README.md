@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This project serves as a practical application of the skills acquired through beginner and advanced React courses provided by Meta. It is a sequential calculator application built with React.js, Chakra UI, and the [bignumber.js](https://mikemcl.github.io/bignumber.js/) API. State management techniques are to keep the user interface synchronized with real-time data updates.
+This project serves as a practical application of the skills acquired through beginner and advanced React courses provided by Meta. It is a sequential calculator application built with React.js, Chakra UI, and the [bignumber.js](https://mikemcl.github.io/bignumber.js/) API. State management techniques are utilized to keep the user interface synchronized with real-time data updates.
 
 ## Features
 
